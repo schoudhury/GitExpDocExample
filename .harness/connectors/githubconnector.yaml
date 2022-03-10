@@ -1,0 +1,23 @@
+connector:
+  name: githubconnector
+  identifier: githubconnector
+  description:
+  orgIdentifier: defaultorg
+  projectIdentifier: sampleapp
+  type: Github
+  spec:
+    url: https://github.com/schoudhury/
+    validationRepo: GitExpDocExample
+    authentication:
+      type: Http
+      spec:
+        type: UsernameToken
+        spec:
+          username: schoudhury
+          tokenRef: githubprojectpat
+    apiAccess:
+      type: Token
+      spec:
+        tokenRef: githubprojectpat
+    executeOnDelegate: false
+    type: Account
