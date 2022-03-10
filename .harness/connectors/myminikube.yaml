@@ -1,0 +1,12 @@
+connector:
+  name: myminikube
+  identifier: myminikube
+  description:
+  orgIdentifier: defaultorg
+  projectIdentifier: sampleapp
+  type: K8sCluster
+  spec:
+    credential:
+      type: InheritFromDelegate
+    delegateSelectors:
+    - harness-sample-k8s-delegate
