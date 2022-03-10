@@ -1,0 +1,16 @@
+connector:
+  name: Harness Docker Connector
+  identifier: harnessImage
+  description: Harness internal connector
+  orgIdentifier: defaultorg
+  projectIdentifier: sampleapp
+  type: DockerRegistry
+  spec:
+    dockerRegistryUrl: https://index.docker.io/v2/
+    providerType: DockerHub
+    auth:
+      type: UsernamePassword
+      spec:
+        username: dockerciread
+        usernameRef: null
+        passwordRef: HARNESS_IMAGE_PASSWORD
