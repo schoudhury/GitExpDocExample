@@ -1,0 +1,35 @@
+pipeline:
+    name: Example
+    identifier: Example
+    allowStageExecutions: false
+    projectIdentifier: sampleapp
+    orgIdentifier: defaultorg
+    tags: {}
+    properties:
+        ci:
+            codebase:
+                connectorRef: DocRepo
+                build: <+input>
+    stages:
+        - stage:
+              name: helloworld
+              identifier: helloworld
+              description: ""
+              type: CI
+              spec:
+                  cloneCodebase: true
+                  infrastructure:
+                      type: KubernetesDirect
+                      spec:
+                          connectorRef: examplek8
+                          namespace: example-delegate-new
+                  execution:
+                      steps:
+                          - step:
+                                type: Run
+                                name: example
+                                identifier: example
+                                spec:
+                                    connectorRef: exampledocker
+                                    image: sample
+                                    command: echo test
